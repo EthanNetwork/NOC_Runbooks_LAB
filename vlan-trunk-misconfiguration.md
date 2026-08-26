@@ -37,7 +37,7 @@ show etherchannel summary        ! if the trunk is part of a port-channel
 4. Confirm the VLAN actually exists in the VLAN database on each switch (`show vlan brief`) — a missing VLAN definition silently drops traffic even if allowed in the trunk list.
 5. Check trunk encapsulation settings match (dot1q on both sides) if the platform supports both ISL and dot1q.
 6. If using VTP, confirm domain name, mode (server/client/transparent), and revision number consistency; mismatches can wipe or alter VLAN databases.
-7. Check `show spanning-tree vlan <id>` for the port's STP state on that VLAN — if blocking unexpectedly, investigate root bridge election and STP topology.
+7. Check `show spanning-tree vlan <id>` for the port's STP state on that VLAN — if blocking unexpectedly, investigate root bridge election and STP topology (dont change Priority Values on anything unless specifically allowed or instructed to do so, changing either Bridge or Port Priorities WILL have knock on effects down the wider network)
 8. After correcting mismatches, verify with `show mac address-table vlan <id>` that MAC addresses are being learned correctly across the trunk.
 
 ## When to Escalate

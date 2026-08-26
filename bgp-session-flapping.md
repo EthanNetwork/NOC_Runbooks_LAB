@@ -30,6 +30,8 @@ show ip bgp neighbors <ip> received-routes
 - **Asymmetric routing / unstable IGP path** to the peer address (for multi-hop eBGP/iBGP).
 - **DDoS or traffic flood** on the peering link starving BGP control-plane traffic.
 
+Note: in a previous lab I ran into BGP flapping, and logs filled with bgp errors (which required using config# logging console 1 to allow me to enter commands and troubleshoot without the cli filling with errors) due to a failure to hardcode a router-id, which upon reload caused the router to select its own RID, which did not match the configurations previously administered
+
 ## Resolution Steps
 1. Check `show ip bgp summary` for uptime and reset counters — confirm the flap pattern and frequency.
 2. Inspect the physical/logical path to the peer: interface errors, recent link flaps, CRC errors.

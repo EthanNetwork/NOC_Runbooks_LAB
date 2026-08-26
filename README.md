@@ -19,6 +19,3 @@ These are first-response guides intended for NOC tier-1/tier-2 engineers. Comman
 
 Each runbook's **When to Escalate** section defines the point at which an issue should be handed off to network engineering, security, or another specialized team rather than continuing tier-1/2 troubleshooting.
 
-## Contributing
-
-When adding a new runbook, follow the existing five-section format and add an entry to the table above.

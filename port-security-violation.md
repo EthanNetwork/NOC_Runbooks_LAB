@@ -32,7 +32,7 @@ show logging | include PORT_SECURITY
 2. Confirm whether the new MAC is expected (legitimate device/NIC swap) or unexpected (possible unauthorized device).
 3. If legitimate: clear the port security violation and reset the port:
    - `shutdown` then `no shutdown` on the interface, or
-   - `clear port-security sticky interface <intf>` / remove the stale MAC, then re-add or let it relearn.
+   - `clear port-security sticky interface <intf>` / remove the stale MAC, then re-add or let it relearn (If the MAC was stickied, make sure you put it back in sticky w/ config-if# switchport port-security mac-address sticky [MAC-ADDRESS] rather than leaving it dynamic, you dk why it was stickied but someone had a good reason) 
 4. If the port was configured for sticky MAC and the device changed, update or clear the sticky entry so the new MAC is accepted going forward.
 5. If unauthorized/unexpected device: do not simply reset the port — investigate the physical location and device before restoring access.
 6. Review whether the max MAC count is appropriate for that port (e.g., a port feeding an IP phone + PC needs at least 2).
